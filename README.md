@@ -38,15 +38,15 @@ A production-ready food management application featuring real-time data synchron
 
 ### Prerequisites
 
-- Node.js ≥18.15 (LTS)
-- PNPM 8.x (Recommended)
+-**Node.js** (v18.15 or higher - LTS recommended)
+- **npm** (v8.x or higher) 
 
 ### Installation
 
 ```bash
 git clone https://github.com/HasanCodeX/Project---web-b11-A12-FoodGarden---client
 cd Project---web-b11-A12-FoodGarden---client
-pnpm install
+npm install
 ```
 
 ## Environment Configuration
@@ -71,25 +71,25 @@ VITE_API_BASE_URL=https://your-api-domain.com
 #### Start development server
 
 ```bash
-pnpm dev
+npm dev
 ```
 
  ####   Create production build
 
 ```bash
-pnpm build
+npm build
 ```
 
  ####   Locally preview production build
 
 ```bash
-pnpm preview
+npm preview
 ```
 
 #### Run ESLint static analysis
 
 ```bash
-pnpm lint
+npm lint
 ```
 
 

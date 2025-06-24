@@ -38,7 +38,7 @@ A production-ready food management application featuring real-time data synchron
 
 ### Prerequisites
 
--**Node.js** (v18.15 or higher - LTS recommended)
+- **Node.js** (v18.15 or higher - LTS recommended)
 - **npm** (v8.x or higher) 
 
 ### Installation

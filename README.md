@@ -58,6 +58,7 @@ pnpm dev	Start development server
 pnpm build	Create production build
 pnpm preview	Locally preview production build
 pnpm lint	Run ESLint static analysis
+```
 🛠️ Technical Specifications
 Category	Technologies
 Core	React 19, Vite 6
@@ -65,6 +66,7 @@ Styling	Tailwind CSS, DaisyUI, Styled Components
 State	Context API, React Firebase Hooks
 UI	Framer Motion, Swiper, Lucide Icons
 Utilities	Axios, Date-fns, React Countdown
+
 🏗️ Build Pipeline
 
 Diagram

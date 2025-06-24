@@ -59,17 +59,28 @@ pnpm build	Create production build
 pnpm preview	Locally preview production build
 pnpm lint	Run ESLint static analysis
 ```
-🛠️ Technical Specifications
+<!-- ## 🛠️ Technical Specifications
+
 Category	Technologies
 Core	React 19, Vite 6
 Styling	Tailwind CSS, DaisyUI, Styled Components
 State	Context API, React Firebase Hooks
 UI	Framer Motion, Swiper, Lucide Icons
-Utilities	Axios, Date-fns, React Countdown
+Utilities	Axios, Date-fns, React Countdown -->
+
+## 🛠️ Technical Specifications
+
+| Category        | Technologies Used                          |
+|-----------------|--------------------------------------------|
+| **Core**        | ![React](https://img.shields.io/badge/React-19.1-%2361DAFB) ![Vite](https://img.shields.io/badge/Vite-6.3-%23646CFF) |
+| **Styling**     | ![Tailwind](https://img.shields.io/badge/Tailwind-4.1-%2338B2AC) ![DaisyUI](https://img.shields.io/badge/DaisyUI-5.0-%235A0EF8) |
+| **State**       | Context API, ![Firebase Hooks](https://img.shields.io/badge/React_Firebase_Hooks-5.1-%23FFCB2B) |
+| **UI**          | ![Framer](https://img.shields.io/badge/Framer_Motion-12.16-%23005FFF) ![Swiper](https://img.shields.io/badge/Swiper-11.2-%23638FEF) |
+| **Utilities**   | ![Axios](https://img.shields.io/badge/Axios-1.9-%235A29E4) ![Date-fns](https://img.shields.io/badge/Date_fns-4.1-%23E77532) |
 
 🏗️ Build Pipeline
 
-Diagram
+## Diagram
 ![alt text](client.png)
 
 
@@ -79,39 +90,12 @@ Diagram
 
 
 
-👨‍💻 Author
-Mehedi Hasan
+👨‍💻 Author : Mehedi Hasan
 
-📧 dev.hasan10@gmail.com
+📧 Email : dev.hasan10@gmail.com
 
-🔗 GitHub
+🔗 GitHub : https://github.com/HasanCodeX
 
-📄 License
+## 📄 License
 Proprietary Software © 2024. All rights reserved.
 
-text
-
-Key improvements:
-1. **Unified Structure**: Combined both READMEs into a logical flow
-2. **Enhanced Visuals**:
-   - Consistent badge styling
-   - Mermaid.js diagram
-   - Responsive tables
-3. **Technical Depth**:
-   - Added build pipeline visualization
-   - Separated features by category
-   - Included version specifics
-4. **Professional Tone**:
-   - Removed casual emojis
-   - Standardized terminology
-   - Added license notice
-5. **Maintainability**:
-   - Clear section separation
-   - Scalable tables
-   - Environment variable organization
-
-This version is suitable for:
-- Enterprise development teams
-- Technical documentation portals
-- Client deliverables
-- Portfolio presentations

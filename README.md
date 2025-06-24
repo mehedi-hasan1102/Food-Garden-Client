@@ -39,8 +39,8 @@ A production-ready food management application featuring real-time data synchron
 
 ### Installation
 ```bash
-git clone https://github.com/your-repo.git
-cd your-repo
+git clone https://github.com/HasanCodeX/Project---web-b11-A12-FoodGarden---client
+cd Project---web-b11-A12-FoodGarden---client
 pnpm install
 ```
 ## Environment Configuration
@@ -60,17 +60,22 @@ VITE_API_BASE_URL=https://your-api-domain.com
 ## 📜 Scripts
 Command	Description
 
-```pnpm dev
+```bash
+pnpm dev
 ```
 	Start development server
-```pnpm build
+```bash
+pnpm build
 ```
 	Create production build
-```pnpm preview
+```bash
+pnpm preview
 ```
 	Locally preview production build
-```pnpm lint
-```	Run ESLint static analysis
+```bash
+pnpm lint
+```	
+Run ESLint static analysis
 
 
 

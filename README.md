@@ -42,31 +42,37 @@ A production-ready food management application featuring real-time data synchron
 git clone https://github.com/your-repo.git
 cd your-repo
 pnpm install
-Environment Configuration
-env
+```
+## Environment Configuration
 # Firebase
+
+```env
 VITE_FIREBASE_API_KEY=your_key
 VITE_FIREBASE_AUTH_DOMAIN=your_domain
 VITE_FIREBASE_PROJECT_ID=your_id
 VITE_FIREBASE_STORAGE_BUCKET=your_bucket
+```
 
 # API
-VITE_API_BASE_URL=https://your-api-domain.com
-📜 Scripts
-Command	Description
-pnpm dev	Start development server
-pnpm build	Create production build
-pnpm preview	Locally preview production build
-pnpm lint	Run ESLint static analysis
-```
-<!-- ## 🛠️ Technical Specifications
 
-Category	Technologies
-Core	React 19, Vite 6
-Styling	Tailwind CSS, DaisyUI, Styled Components
-State	Context API, React Firebase Hooks
-UI	Framer Motion, Swiper, Lucide Icons
-Utilities	Axios, Date-fns, React Countdown -->
+VITE_API_BASE_URL=https://your-api-domain.com
+
+## 📜 Scripts
+Command	Description
+
+```pnpm dev
+```
+	Start development server
+```pnpm build
+```
+	Create production build
+```pnpm preview
+```
+	Locally preview production build
+```pnpm lint
+```	Run ESLint static analysis
+
+
 
 ## 🛠️ Technical Specifications
 

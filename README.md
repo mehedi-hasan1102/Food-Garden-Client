@@ -66,31 +66,33 @@ VITE_API_BASE_URL=https://your-api-domain.com
 
 ## 📜 Scripts
 
-Command Description
+## Command Description
+
+#### Start development server
 
 ```bash
 pnpm dev
 ```
 
-#### Start development server
+ ####   Create production build
 
 ```bash
 pnpm build
 ```
 
- ####   Create production build
+ ####   Locally preview production build
 
 ```bash
 pnpm preview
 ```
 
- ####   Locally preview production build
+#### Run ESLint static analysis
 
 ```bash
 pnpm lint
 ```
 
-Run ESLint static analysis
+
 
 ## 🛠️ Technical Specifications
 

@@ -34,7 +34,9 @@ A production-ready food management application featuring real-time data synchron
 
 ---
 
-## Live Link : https://food-garden-bd.web.app
+## 🚀 Live Link : https://food-garden-bd.web.app
+
+---
 
 ## 🚀 Quick Start
 

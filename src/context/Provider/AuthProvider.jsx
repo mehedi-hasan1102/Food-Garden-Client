@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      axios.post('https://mehedi2.vercel.app/jwt',currentUser,{withCredentials:true})
+      axios.post('https://project-web-b11-a11-food-garden-ser.vercel.app/jwt',currentUser,{withCredentials:true})
       .then((res) =>console.log(res.data))
       .catch(err=>console.log(err))
     });

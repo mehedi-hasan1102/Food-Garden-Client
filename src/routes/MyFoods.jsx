@@ -17,7 +17,7 @@ const MyItems = () => {
       setLoading(true);
 
       try {
-        const res = await fetch("https://mehedi2.vercel.app/foods");
+        const res = await fetch("https://project-web-b11-a11-food-garden-ser.vercel.app/foods");
         const allItems = await res.json();
         const myItems = allItems.filter(item => item.userEmail === user.email);
         setItems(myItems);
@@ -38,7 +38,7 @@ const MyItems = () => {
   // ✅ Delete handler
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`https://mehedi2.vercel.app/foods/${id}`, {
+      const res = await fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${id}`, {
         method: "DELETE",
 
 
@@ -82,7 +82,7 @@ headers: { "Content-Type": "application/json" },
     };
 
     try {
-      const res = await fetch(`https://mehedi2.vercel.app/foods/${updatingItem._id}`, {
+      const res = await fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${updatingItem._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

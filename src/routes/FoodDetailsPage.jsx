@@ -18,7 +18,7 @@ const FoodDetailsPage = () => {
   useEffect(() => {
     const fetchFoodDetails = async () => {
       try {
-        const res = await fetch(`https://mehedi2.vercel.app/foods/${id}`, {
+        const res = await fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${id}`, {
           credentials: "include",
         });
         if (!res.ok) throw new Error("Failed to fetch food details");
@@ -45,7 +45,7 @@ const FoodDetailsPage = () => {
       // const token = localStorage.getItem("token");
       // if (!token) throw new Error("Authentication required");
 
-      const res = await fetch(`https://mehedi2.vercel.app/foods/notes/${id}/`, {
+      const res = await fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/notes/${id}/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

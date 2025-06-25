@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {
         path: "update-food/:id",
         loader: ({ params }) =>
-          fetch(`https://mehedi2.vercel.app/foods/${params.id}`),
+          fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${params.id}`),
 
         element: (
           <PrivateRoute>

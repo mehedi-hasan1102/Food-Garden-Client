@@ -39,7 +39,7 @@ const UpdateFood = () => {
   const handleFormUpdate = (e) => {
     e.preventDefault();
 
-    fetch(`https://mehedi2.vercel.app/foods-update/${foodData._id}`, {
+    fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods-update/${foodData._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

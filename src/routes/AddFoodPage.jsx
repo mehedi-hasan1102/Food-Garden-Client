@@ -16,7 +16,7 @@ const AddFoodPage = () => {
     formData.addedDate = new Date().toISOString();
 
     try {
-      const res = await fetch("https://mehedi2.vercel.app/foods", {
+      const res = await fetch("https://project-web-b11-a11-food-garden-ser.vercel.app/foods", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
 

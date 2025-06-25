@@ -13,7 +13,7 @@ const FridgePage = () => {
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const res = await axios.get("https://mehedi2.vercel.app/foods");
+        const res = await axios.get("https://project-web-b11-a11-food-garden-ser.vercel.app/foods");
         setFoods(res.data);
       } catch (err) {
         Swal.fire({

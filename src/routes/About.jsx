@@ -7,12 +7,14 @@ const About = () => {
         {/* Left Image */}
         <div className="md:w-1/2 bg-gradient-to-tr from-[#ff6347]/30 to-[#ffa500]/20 flex items-center justify-center p-10">
           <img
-            src="https://i.ibb.co/rRstDXJj/about.png"
+            src="https://i.ibb.co/gbNk4Qdm/About-us-page-pana.png"
             alt="About Illustration"
             className="max-w-full max-h-[400px] drop-shadow-xl rounded-lg"
             loading="lazy"
           />
         </div>
+
+
 
 
 

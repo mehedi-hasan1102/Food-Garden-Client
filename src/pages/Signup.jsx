@@ -63,7 +63,7 @@ const Signup = () => {
         {/* Illustration - left side */}
         <div className="hidden md:flex md:w-1/2 bg-gradient-to-tr from-[#ff6347]/30 to-[#ffa500]/20 items-center justify-center p-12">
           <img
-            src="https://i.ibb.co/wZQZ31Vs/signup.png"
+            src="https://i.ibb.co/Rp8mFNYM/Sign-up-amico.png"
             alt="Signup Illustration"
             className="max-w-full max-h-[400px] rounded-lg drop-shadow-xl"
             loading="lazy"
@@ -71,6 +71,7 @@ const Signup = () => {
         </div>
 
 
+        {/* Login form */}
         {/* Signup form */}
         <form
           onSubmit={handleSignup}

@@ -99,14 +99,13 @@ const Login = () => {
         {/* Illustration - left side */}
         <div className="hidden md:flex md:w-1/2 bg-gradient-to-tr from-[#ff6347]/30 to-[#ffa500]/20 items-center justify-center p-12">
           <img
-            src="https://i.ibb.co/WpgWdpms/login.png"
+            src="https://i.ibb.co/fY5dXG9H/Login-pana.png"
             alt="Login Illustration"
             className="max-w-full max-h-[400px] rounded-lg drop-shadow-xl"
             loading="lazy"
           />
         </div>
 
-        {/* Login form */}
         <form
           onSubmit={handleLogin}
           className="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center space-y-6 text-[#111827] dark:text-[#d1d5db]"

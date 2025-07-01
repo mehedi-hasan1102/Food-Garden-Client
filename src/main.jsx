@@ -20,9 +20,9 @@ import AddFoodPage from "./routes/AddFoodPage";
 import FoodDetailsPage from "./routes/FoodDetailsPage";
 import Profile from "./routes/Profile";
 import FridgePage from "./routes/FridgePage";
-import Overview from './pages/dashboard/Overview';
+import Overview from "./pages/dashboard/Overview";
 import DashboardLayout from "./layout/DashboardLayout";
-import AllFoods from './routes/AllFoods';
+import AllFoods from "./routes/AllFoods";
 import Contact from "./routes/Contact";
 import About from "./routes/About";
 import FAQ from "./routes/FAQ";
@@ -46,18 +46,18 @@ const router = createBrowserRouter([
       // },
       {
         path: "/fridge",
-        element: (
-          <PrivateRoute>
-            <FridgePage />
-          </PrivateRoute>
-        ),
+        element: <FridgePage />,
       },
       {
         path: "update-food/:id",
         loader: ({ params }) =>
-          fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${params.id}`,{
-            method: "GET",credentials: "include"
-          }),
+          fetch(
+            `https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${params.id}`,
+            {
+              method: "GET",
+              credentials: "include",
+            }
+          ),
 
         element: (
           <PrivateRoute>
@@ -68,39 +68,17 @@ const router = createBrowserRouter([
 
       {
         path: "/faq",
-        element: (
-
-          <FAQ />
-
-        ),
+        element: <FAQ />,
       },
 
       {
         path: "/about",
-        element: (
-
-          <About/>
-
-        ),
+        element: <About />,
       },
       {
         path: "/contact",
-        element: (
-
-          <Contact />
-
-        ),
+        element: <Contact />,
       },
-    
-
-
-
-
-
-
-
-
-
 
       {
         path: "my-foods",
@@ -125,9 +103,7 @@ const router = createBrowserRouter([
     element: <NotFound />,
   },
 
-
   // dashboard routes
-
 
   {
     path: "/dashboard",
@@ -142,24 +118,8 @@ const router = createBrowserRouter([
       { path: "add-food", element: <AddFoodPage /> },
       { path: "my-foods", element: <MyFoods /> },
       { path: "user-profile", element: <Profile /> },
-
-      // {
-      //   path: "update-plant/:id",
-      //   loader: ({ params }) =>
-      //     fetch(
-      //       `https://project-web-b11-a10-plant-care-serv.vercel.app/plants/${params.id}`
-      //     ),
-      //   element: <UpdatePlant />,
-      // },
-
-      // {
-      //   path: "plant-details/:id",
-      //   element: <PlantDetailsPage />,
-      // },
     ],
   },
-
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

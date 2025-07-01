@@ -19,20 +19,8 @@ const AddFoodPage = () => {
       const res = await fetch("https://project-web-b11-a11-food-garden-ser.vercel.app/foods", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-
-
-
-
-
-
-
-
         body: JSON.stringify(formData),
-        credentials: "include",  
-
-
-
-        // body: JSON.stringify(formData),
+        credentials: "include",
       });
       if (!res.ok) throw new Error("Failed to add food");
 
@@ -56,9 +44,21 @@ const AddFoodPage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-yellow-100 to-yellow-300 dark:from-gray-900 dark:to-gray-800 min-h-screen flex items-center justify-center px-4 py-8">
-      <section className="mt-20 max-w-3xl w-full p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-lg dark:shadow-yellow-800/30">
-        <h2 className="text-4xl font-bold text-yellow-700 dark:text-yellow-400 text-center mb-8">
+    <div
+      className="min-h-screen flex items-center justify-center px-4 py-8
+        bg-[#fffaf5] dark:bg-[#1f1f1f] transition-colors duration-300"
+    >
+      <section
+        className="mt-20 max-w-3xl w-full p-8
+          bg-white dark:bg-[#1f1f1f]
+          rounded-2xl
+          shadow-lg dark:shadow-[0_0_15px_#ffa500aa]"
+      >
+        <h2
+          className="text-4xl font-bold
+            text-[#ff6347] dark:text-[#ffa500]
+            text-center mb-8"
+        >
           Add a New Food Item
         </h2>
 
@@ -79,11 +79,33 @@ const AddFoodPage = () => {
 
           <FormTextarea label="Description" name="description" />
 
-          {/* Hidden fields (auto filled) - no user input needed */}
-          <FormInput label="User Email" name="userEmail" type="email" value={user.email} readOnly hidden />
-          <FormInput label="Added Date" name="addedDate" type="text" value={new Date().toISOString()} readOnly hidden />
+          {/* Hidden fields (auto filled) */}
+          <FormInput
+            label="User Email"
+            name="userEmail"
+            type="email"
+            value={user.email}
+            readOnly
+            hidden
+          />
+          <FormInput
+            label="Added Date"
+            name="addedDate"
+            type="text"
+            value={new Date().toISOString()}
+            readOnly
+            hidden
+          />
 
-          <button type="submit" className="btn btn-warning w-full text-white text-lg">
+          <button
+            type="submit"
+            className="w-full rounded-md
+              bg-[#ff6347] hover:bg-[#e5533d]
+              dark:bg-[#ffa500] dark:hover:bg-[#cc8400]
+              text-white text-lg font-semibold
+              transition-colors duration-300
+              py-3"
+          >
             🍽️ Add Food
           </button>
         </form>
@@ -96,39 +118,63 @@ const AddFoodPage = () => {
 
 const FormInput = ({ label, ...props }) => (
   <div className={props.hidden ? "hidden" : ""}>
-    <label htmlFor={props.name} className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+    <label
+      htmlFor={props.name}
+      className="block mb-1 font-medium
+        text-[#111827] dark:text-[#d1d5db]"
+    >
       {label}
     </label>
     <input
       {...props}
       id={props.name}
-      className="input input-bordered w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+      className="input input-bordered w-full rounded-md
+        dark:bg-[#1f1f1f] dark:border-[#ffa500] dark:text-[#d1d5db]
+        border border-[#ff6347] text-[#111827]
+        focus:outline-none focus:ring-2 focus:ring-[#ff6347]
+        dark:focus:ring-[#ffa500]"
     />
   </div>
 );
 
 const FormTextarea = ({ label, ...props }) => (
   <div>
-    <label htmlFor={props.name} className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+    <label
+      htmlFor={props.name}
+      className="block mb-1 font-medium
+        text-[#111827] dark:text-[#d1d5db]"
+    >
       {label}
     </label>
     <textarea
       {...props}
       id={props.name}
-      className="textarea textarea-bordered w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+      className="textarea textarea-bordered w-full rounded-md
+        dark:bg-[#1f1f1f] dark:border-[#ffa500] dark:text-[#d1d5db]
+        border border-[#ff6347] text-[#111827]
+        focus:outline-none focus:ring-2 focus:ring-[#ff6347]
+        dark:focus:ring-[#ffa500]"
     />
   </div>
 );
 
 const FormSelect = ({ label, name, options, ...props }) => (
   <div>
-    <label htmlFor={name} className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+    <label
+      htmlFor={name}
+      className="block mb-1 font-medium
+        text-[#111827] dark:text-[#d1d5db]"
+    >
       {label}
     </label>
     <select
       name={name}
       id={name}
-      className="select select-bordered w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+      className="select select-bordered w-full rounded-md
+        dark:bg-[#1f1f1f] dark:border-[#ffa500] dark:text-[#d1d5db]
+        border border-[#ff6347] text-[#111827]
+        focus:outline-none focus:ring-2 focus:ring-[#ff6347]
+        dark:focus:ring-[#ffa500]"
       {...props}
     >
       {options.map((opt) => (

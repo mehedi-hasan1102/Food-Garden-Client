@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 
 const DynamicSections = () => {
   const [visibleFoods, setVisibleFoods] = useState([]);
@@ -47,12 +47,12 @@ const DynamicSections = () => {
   };
 
   return (
-    <section className="rounded-2xl mt-8 max-w-8xl mx-auto px-4 py-14 bg-gradient-to-b from-yellow-50 to-white dark:from-zinc-900 dark:to-zinc-800 transition-colors duration-300">
+    <section className="rounded-2xl  max-w-8xl mx-auto px-4 py-14 bg-[#fffaf5] dark:bg-[#1f1f1f] transition-colors duration-300">
       <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-orange-700 dark:text-orange-400">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#ff6347] dark:text-[#ffa500]">
           Nearly Expiry Food Items
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 mt-3 text-base max-w-xl mx-auto">
+        <p className="text-sm text-gray-500 dark:text-[#d1d5db] mt-3 max-w-xl mx-auto">
           These items are expiring within the next 5 days. Use or donate them soon to prevent waste.
         </p>
       </div>
@@ -60,49 +60,43 @@ const DynamicSections = () => {
       {loading ? (
         <Loading />
       ) : visibleFoods.length === 0 ? (
-        <p className="text-center text-gray-500 dark:text-gray-400">No nearly expiring food items found.</p>
+        <p className="text-center text-gray-500 dark:text-[#d1d5db]">No nearly expiring food items found.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-          {visibleFoods.map((food) => 
-          
-          (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {visibleFoods.map((food) => (
             <div
-              key={food._id}
-              className="text-center bg-gradient-to-br from-yellow-100 to-white dark:from-zinc-800 dark:to-zinc-900 p-5 rounded-xl shadow hover:shadow-xl transition-shadow duration-300"
-            >
-              {food.image ? (
-                <img
-                  src={food.image}
-                  alt={food.name}
-                  className="w-full h-48 object-cover rounded-md mb-4 mx-auto"
-                />
-              ) : (
-                <div className="w-full h-48 flex items-center justify-center bg-gray-200 dark:bg-zinc-700 rounded-md mb-4">
-                  <span className="text-gray-500 dark:text-gray-300">No Image</span>
-                </div>
-              )}
+  key={food._id}
+  className="flex flex-col bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+  style={{ minHeight: "320px" }}
+>
+  {food.image ? (
+    <img
+      src={food.image}
+      alt={food.name}
+      className="w-full h-44 object-cover rounded-md mb-5 shadow-sm"
+    />
+  ) : (
+    <div className="w-full h-44 flex items-center justify-center bg-gray-100 dark:bg-zinc-700 rounded-md mb-5">
+      <span className="text-gray-400 dark:text-gray-500 italic">No Image</span>
+    </div>
+  )}
 
-              <h3 className="text-xl font-semibold text-orange-800 dark:text-orange-300">
-                {food.title}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-                Category: {food.category}
-              </p>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
-                Quantity: {food.quantity}
-              </p>
-              <p className="text-sm text-red-600 dark:text-red-400 font-medium">
-                Expiry: {format(new Date(food.expiryDate), "dd MMM yyyy")}
-              </p>
+  <h3 className="text-2xl font-semibold text-[#111827] dark:text-[#d1d5db] mb-3 truncate">
+    {food.title}
+  </h3>
 
-              <button
-                onClick={() => navigate(`/food-details/${food._id}`)}
-                className="mt-4 px-4 py-2 rounded-md btn  dark:text-gray-900 bg-[#ff6347] hover:bg-[#e5533d] btn-sm text-white dark:bg-[#ffa500] dark:hover:bg-[#cc8400] transition-colors mx-auto block"
-              >
-                See Details
-              </button>
-            </div>
+  <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 flex-grow line-clamp-3 leading-relaxed">
+    {food.description || "No description available."}
+  </p>
+
+  <button
+    onClick={() => navigate(`/food-details/${food._id}`)}
+    className="mt-auto inline-block px-5 py-2 rounded-md bg-[#ff6347] hover:bg-[#e5533d] text-white dark:bg-[#ffa500] dark:hover:bg-[#cc8400] font-medium transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#ff6347] dark:focus:ring-[#ffa500]"
+  >
+    See More
+  </button>
+</div>
+
           ))}
         </div>
       )}
@@ -111,12 +105,9 @@ const DynamicSections = () => {
         <div className="flex justify-center mt-12">
           <button
             onClick={handleShowAll}
-            className="px-6  py-2 rounded-md btn
-            bg-[#ff6347] text-white font-semibold
-            hover:bg-[#e5533c] dark:bg-[#ffa500] dark:text-gray-900 dark:hover:bg-[#cc8400]
-            transition-colors duration-200 "
+            className="px-6 py-2 rounded-lg bg-[#ff6347] text-white font-semibold hover:bg-[#e5533d] dark:bg-[#ffa500] dark:text-[#111827] dark:hover:bg-[#cc8400] transition-colors duration-200"
           >
-            View All 
+            View All
           </button>
         </div>
       )}

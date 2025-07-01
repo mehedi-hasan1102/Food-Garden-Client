@@ -121,3 +121,4 @@ npm lint
 ## 📄 License
 
 Proprietary Software © 2024. All rights reserved.
+# a11polish

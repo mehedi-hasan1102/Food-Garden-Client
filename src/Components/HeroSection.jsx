@@ -8,49 +8,45 @@ import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 export default function HeroSlider() {
   const slides = [
-      {
-    img: 'https://i.ibb.co/m5JqJSfR/meet1.jpg',
-    title: 'Fresh & Organic',
-    subtitle: 'Discover farm-fresh ingredients delivered to your doorstep',
-  },
-  {
-    img: 'https://i.ibb.co/VcchrpqJ/482009379-1070919158389822-1583818902997518636-n.jpg',
-    title: 'Healthy Recipes',
-    subtitle: 'Tasty and nutritious meals made easy for every day',
-  },
-  
-  {
-    img: 'https://i.ibb.co/FLNKfBQF/484072515-948743677452277-438710571920415173-n.jpg',
-    title: 'Meal Planning Made Simple',
-    subtitle: 'Plan your weekly meals effortlessly with our expert tips',
-  },
-  
-  {
-    img: 'https://i.ibb.co/C3F12DrW/meet6.jpg',
-    title: 'Snack Smart',
-    subtitle: 'Healthy and delicious snacks for any time of the day',
-  },
-  
-  {
-    img: 'https://i.ibb.co/ZphCg4Lc/meet8.jpg',
-    title: 'Family-Friendly Meals',
-    subtitle: 'Simple recipes the whole family will love',
-  },
-  {
-    img: 'https://i.ibb.co/zhjXMDtg/487976956-961168309543147-6284679182393018791-n.jpg',
-    title: 'Quick & Easy',
-    subtitle: 'Delicious meals ready in under 30 minutes',
-  },
-  {
-    img: 'https://i.ibb.co/ccDD7vSR/488549398-961171166209528-7591433434064531556-n.jpg',
-    title: 'Food for Every Mood',
-    subtitle: 'Comfort foods to brighten your day and satisfy cravings',
-  },
-
+    {
+      img: 'https://i.ibb.co/m5JqJSfR/meet1.jpg',
+      title: 'Fresh & Organic',
+      subtitle: 'Discover farm-fresh ingredients delivered to your doorstep',
+    },
+    {
+      img: 'https://i.ibb.co/VcchrpqJ/482009379-1070919158389822-1583818902997518636-n.jpg',
+      title: 'Healthy Recipes',
+      subtitle: 'Tasty and nutritious meals made easy for every day',
+    },
+    {
+      img: 'https://i.ibb.co/FLNKfBQF/484072515-948743677452277-438710571920415173-n.jpg',
+      title: 'Meal Planning Made Simple',
+      subtitle: 'Plan your weekly meals effortlessly with our expert tips',
+    },
+    {
+      img: 'https://i.ibb.co/C3F12DrW/meet6.jpg',
+      title: 'Snack Smart',
+      subtitle: 'Healthy and delicious snacks for any time of the day',
+    },
+    {
+      img: 'https://i.ibb.co/ZphCg4Lc/meet8.jpg',
+      title: 'Family-Friendly Meals',
+      subtitle: 'Simple recipes the whole family will love',
+    },
+    {
+      img: 'https://i.ibb.co/zhjXMDtg/487976956-961168309543147-6284679182393018791-n.jpg',
+      title: 'Quick & Easy',
+      subtitle: 'Delicious meals ready in under 30 minutes',
+    },
+    {
+      img: 'https://i.ibb.co/ccDD7vSR/488549398-961171166209528-7591433434064531556-n.jpg',
+      title: 'Food for Every Mood',
+      subtitle: 'Comfort foods to brighten your day and satisfy cravings',
+    },
   ];
 
   return (
-    <div className="w-full  overflow-hidden shadow-2xl mt-2 rounded-2xl">
+    <div className="w-full h-[70vh] max-h-[700px] overflow-hidden shadow-2xl mt-2 rounded-2xl">
       <Swiper
         spaceBetween={30}
         effect="fade"
@@ -61,11 +57,11 @@ export default function HeroSlider() {
           disableOnInteraction: false,
         }}
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
-        className="mySwiper"
+        className="mySwiper h-full"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
+            <div className="relative w-full h-full">
               <img
                 src={slide.img}
                 alt={`Slide ${index + 1}`}

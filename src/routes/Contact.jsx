@@ -59,12 +59,13 @@ const Contact = () => {
         {/* Left Image Section */}
         <div className="md:w-1/2 bg-gradient-to-tr from-[#ff6347]/30 to-[#ffa500]/20 flex items-center justify-center p-10">
           <img
-            src="https://i.ibb.co/nMt5Tvrp/Update-bro.png"
+            src="https://i.ibb.co/Mk7BGM0v/contact.png"
             alt="Contact Illustration"
             className="max-w-full max-h-[400px] drop-shadow-xl rounded-lg"
             loading="lazy"
           />
         </div>
+
 
         {/* Right Form Section */}
         <div className="md:w-1/2 p-10 flex flex-col justify-center">

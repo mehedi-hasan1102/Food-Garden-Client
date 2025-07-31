@@ -46,8 +46,8 @@ A production-ready food management application featuring real-time data synchron
 ### Installation
 
 ```bash
-git clone https://github.com/HasanCodeX/Project---web-b11-A12-FoodGarden---client
-cd Project---web-b11-A12-FoodGarden---client
+git clone https://github.com/mehedi-hasan1102/Food-Garden-Client
+cd Food-Garden-Client
 npm install
 ```
 
@@ -114,9 +114,9 @@ npm lint
 
 👨‍💻 Author : Mehedi Hasan
 
-📧 Email : dev.hasan10@gmail.com
+📧 Email : mehedi.hasan11023@gmail.com
 
-🔗 GitHub : https://github.com/HasanCodeX
+🔗 GitHub : https://github.com/mehedi-hasan1102
 
 ## 📄 License
 

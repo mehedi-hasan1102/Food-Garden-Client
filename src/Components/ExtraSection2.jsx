@@ -69,7 +69,7 @@ const itemVariants = {
 
 const ExtraSection2 = () => {
   return (
-    <section className="rounded-lg  max-w-8xl mx-auto px-4 py-14 bg-[#fffaf5] dark:bg-[#1f1f1f] transition-colors duration-300">
+    <section className="  max-w-8xl mx-auto px-4 py-14 bg-[#fffaf5] dark:bg-[#1f1f1f] transition-colors duration-300">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-bold text-[#ff6347] dark:text-[#ffa500]">
           Understanding Food Waste: Facts & Statistics

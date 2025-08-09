@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import { GiFoodTruck } from "react-icons/gi";
@@ -111,6 +111,14 @@ const Footer = () => {
               className="text-[#ff6347] dark:text-[#ffa500] hover:text-[#cc5039] dark:hover:text-[#e6a233] transition text-xl"
             >
               <FaTwitter />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#ff6347] dark:text-[#ffa500] hover:text-[#cc5039] dark:hover:text-[#e6a233] transition text-xl"
+            >
+              <FaLinkedin />
             </a>
           </div>
         </div>

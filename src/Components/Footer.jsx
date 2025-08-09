@@ -49,10 +49,10 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/profile"
+                to="//faq"
                 className="hover:text-[#ff6347] dark:hover:text-[#ffa500] transition-colors"
               >
-                Profile
+                FAQ
               </Link>
             </li>
           </ul>

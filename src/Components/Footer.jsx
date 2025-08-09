@@ -113,7 +113,7 @@ const Footer = () => {
               <FaTwitter />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#ff6347] dark:text-[#ffa500] hover:text-[#cc5039] dark:hover:text-[#e6a233] transition text-xl"

@@ -113,14 +113,7 @@ const ExtraSection2 = () => {
 </MotionDiv>
 
 
-      <div className="flex justify-center mt-12">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="px-6 py-2 rounded-lg bg-[#ff6347] hover:bg-[#e5533d] text-white dark:bg-[#ffa500] dark:hover:bg-[#cc8400] font-medium transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#ff6347] dark:focus:ring-[#ffa500]"
-        >
-          Back to Top
-        </button>
-      </div>
+     
     </section>
   );
 };

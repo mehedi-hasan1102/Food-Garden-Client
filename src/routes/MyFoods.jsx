@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/Provider/AuthProvider";
 import Swal from "sweetalert2";
 import Loading from "../Components/Loading";
+import axiosSecure from "../api/axios";
 
 const MyItems = () => {
   const { user } = useAuth();
@@ -17,10 +19,12 @@ const MyItems = () => {
       setLoading(true);
 
       try {
-        const res = await fetch("https://project-web-b11-a11-food-garden-ser.vercel.app/foods");
-        const allItems = await res.json();
-        const myItems = allItems.filter((item) => item.userEmail === user.email);
-        setItems(myItems);
+        const res = await axiosSecure.get("/foods");
+        if (res.data.ok) {
+          const allItems = res.data.data;
+          const myItems = allItems.filter((item) => item.userEmail === user.email);
+          setItems(myItems);
+        }
       } catch (error) {
         Swal.fire({ title: "Failed to load items!", icon: "error" });
         console.error("Fetch error:", error);
@@ -34,15 +38,12 @@ const MyItems = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${id}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-      if (!res.ok) throw new Error("Delete failed");
-      setItems((prev) => prev.filter((item) => item._id !== id));
-      Swal.fire({ title: "Item deleted!", icon: "success" });
-      setDeletingId(null);
+      const res = await axiosSecure.delete(`/foods/${id}`);
+      if (res.data.ok) {
+        setItems((prev) => prev.filter((item) => item._id !== id));
+        Swal.fire({ title: "Item deleted!", icon: "success" });
+        setDeletingId(null);
+      }
     } catch (error) {
       Swal.fire({ title: "Failed to delete item.", icon: "error" });
       console.error("Delete error:", error);
@@ -63,22 +64,17 @@ const MyItems = () => {
     };
 
     try {
-      const res = await fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${updatingItem._id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-        credentials: "include",
-      });
+      const res = await axiosSecure.put(`/foods/${updatingItem._id}`, formData);
 
-      if (!res.ok) throw new Error("Update failed");
+      if (res.data.ok) {
+        const updatedItem = res.data.data;
+        setItems((prev) =>
+          prev.map((item) => (item._id === updatedItem._id ? updatedItem : item))
+        );
 
-      const updatedItem = await res.json();
-      setItems((prev) =>
-        prev.map((item) => (item._id === updatedItem._id ? updatedItem : item))
-      );
-
-      Swal.fire({ title: "Item updated!", icon: "success" });
-      setUpdatingItem(null);
+        Swal.fire({ title: "Item updated!", icon: "success" });
+        setUpdatingItem(null);
+      }
     } catch (error) {
       Swal.fire({ title: "Update failed.", icon: "error" });
       console.error("Update error:", error);

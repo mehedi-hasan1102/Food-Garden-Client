@@ -46,11 +46,7 @@ const Navbar = () => {
         });
       }
     }
-  
-  fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/logout`, {
-      method: "POST",
-      credentials: "include",
-    })}
+  };
 
   const navItems = (
     <>

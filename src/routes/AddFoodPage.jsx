@@ -1,6 +1,7 @@
 import { useAuth } from "../context/Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import axiosSecure from "../api/axios";
 
 const AddFoodPage = () => {
   const { user } = useAuth();
@@ -16,23 +17,18 @@ const AddFoodPage = () => {
     formData.addedDate = new Date().toISOString();
 
     try {
-      const res = await fetch("https://project-web-b11-a11-food-garden-ser.vercel.app/foods", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-        credentials: "include",
-      });
-      if (!res.ok) throw new Error("Failed to add food");
+      const res = await axiosSecure.post("/foods", formData);
+      if (res.data.ok) {
+        Swal.fire({
+          title: "Food item added!",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+        });
 
-      Swal.fire({
-        title: "Food item added!",
-        icon: "success",
-        timer: 2000,
-        showConfirmButton: false,
-      });
-
-      form.reset();
-      navigate("/my-foods"); // Redirect after success
+        form.reset();
+        navigate("/dashboard/my-foods"); // Redirect after success
+      }
     } catch (error) {
       console.error(error);
       Swal.fire({

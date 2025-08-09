@@ -4,6 +4,7 @@ import { auth } from "../../context/firebase/firebase.config";
 import { motion as Motion } from "framer-motion";
 import { FaUserCircle } from "react-icons/fa";
 import { GiFruitBowl, GiPlantWatering } from "react-icons/gi";
+import axiosSecure from "../../api/axios";
 
 // Animation variants
 const cardVariants = {
@@ -32,14 +33,14 @@ const Overview = () => {
 
     const fetchFoods = async () => {
       try {
-        const res = await fetch("https://project-web-b11-a11-food-garden-ser.vercel.app/foods");
-        const data = await res.json();
-
-        const myItems = data.filter(
-          (item) => item.userEmail?.toLowerCase() === user.email.toLowerCase()
-        );
-
-        setStats({ total: data.length, mine: myItems.length });
+        const res = await axiosSecure.get("/foods");
+        if (res.data.ok) {
+          const data = res.data.data;
+          const myItems = data.filter(
+            (item) => item.userEmail?.toLowerCase() === user.email.toLowerCase()
+          );
+          setStats({ total: data.length, mine: myItems.length });
+        }
       } catch (error) {
         console.error("Error fetching foods:", error);
       }

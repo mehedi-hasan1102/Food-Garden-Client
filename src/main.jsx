@@ -26,6 +26,7 @@ import AllFoods from "./routes/AllFoods";
 import Contact from "./routes/Contact";
 import About from "./routes/About";
 import FAQ from "./routes/FAQ";
+import axiosSecure from "./api/axios";
 
 const router = createBrowserRouter([
   {
@@ -51,13 +52,7 @@ const router = createBrowserRouter([
       {
         path: "update-food/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${params.id}`,
-            {
-              method: "GET",
-              credentials: "include",
-            }
-          ),
+  axiosSecure.get(`/foods/${params.id}`),
 
         element: (
           <PrivateRoute>
@@ -79,20 +74,20 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "food-details/:id",
+        element: (
+          <PrivateRoute>
+            <FoodDetailsPage />
+          </PrivateRoute>
+        ),
+      },
 
       {
         path: "my-foods",
         element: (
           <PrivateRoute>
             <MyFoods />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "food-details/:id",
-        element: (
-          <PrivateRoute>
-            <FoodDetailsPage />
           </PrivateRoute>
         ),
       },
@@ -118,6 +113,14 @@ const router = createBrowserRouter([
       { path: "add-food", element: <AddFoodPage /> },
       { path: "my-foods", element: <MyFoods /> },
       { path: "user-profile", element: <Profile /> },
+      {
+        path: "food-details/:id",
+        element: (
+          <PrivateRoute>
+            <FoodDetailsPage />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

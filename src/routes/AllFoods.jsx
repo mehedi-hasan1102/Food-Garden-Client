@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosSecure from "../api/axios";
 import Swal from "sweetalert2";
 import Loading from "../Components/Loading";
 
@@ -16,8 +16,10 @@ const AllFoods = () => {
     const fetchFoods = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("https://project-web-b11-a11-food-garden-ser.vercel.app/foods");
-        setFoods(res.data);
+        const res = await axiosSecure.get("/foods");
+        if (res.data.ok) {
+          setFoods(res.data.data);
+        }
       } catch (err) {
         Swal.fire({
           title: "Failed to fetch foods",
@@ -147,7 +149,7 @@ const AllFoods = () => {
                       </td>
                       <td className="p-4 text-center">
                         <button
-                          onClick={() => navigate(`/food-details/${food._id}`)}
+                          onClick={() => navigate(`/dashboard/food-details/${food._id}`)}
                           className="px-4 py-2 bg-[#ff6347] hover:bg-[#e5533d] dark:bg-[#ffa500] dark:hover:bg-[#cc8400] text-white dark:text-black rounded-md transition"
                         >
                           See Details
@@ -184,7 +186,7 @@ const AllFoods = () => {
                     )}
                   </p>
                   <button
-                    onClick={() => navigate(`/food-details/${food._id}`)}
+                    onClick={() => navigate(`/dashboard/food-details/${food._id}`)}
                     className="mt-4 px-4 py-2 bg-[#ff6347] hover:bg-[#e5533d] dark:bg-[#ffa500] dark:hover:bg-[#cc8400] text-white dark:text-black rounded-md transition w-full"
                   >
                     See Details

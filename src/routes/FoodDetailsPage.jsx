@@ -19,7 +19,7 @@ const FoodDetailsPage = () => {
   useEffect(() => {
     const fetchFoodDetails = async () => {
       try {
-        const res = await fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/${id}`, {
+        const res = await fetch(`https://food-garden-server-bd.vercel.app/foods/${id}`, {
           credentials: "include",
         });
         if (!res.ok) throw new Error("Failed to fetch food details");
@@ -43,17 +43,10 @@ const FoodDetailsPage = () => {
     setError(null);
 
     try {
-      const res = await fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods/notes/${id}/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          note: newNote,
-          postedBy: user.email,
-          postedAt: new Date().toISOString(),
-        }),
+      const res = await axiosSecure.post(`/foods/notes/${id}`, {
+        note: newNote,
+        postedBy: user.email,
+        postedAt: new Date().toISOString(),
       });
 
       if (!res.ok) {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosSecure from "../api/axios";
 import Swal from "sweetalert2";
 import Loading from "../Components/Loading";
 
@@ -15,8 +15,10 @@ const FridgePage = () => {
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const res = await axios.get("https://project-web-b11-a11-food-garden-ser.vercel.app/foods");
-        setFoods(res.data);
+        const res = await axiosSecure.get("/foods");
+        if (res.data.ok) {
+          setFoods(res.data.data);
+        }
       } catch (err) {
         Swal.fire({
           title: "Failed to fetch foods",

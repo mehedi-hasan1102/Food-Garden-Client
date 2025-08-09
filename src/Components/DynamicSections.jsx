@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
-// import { format } from "date-fns";
+import axiosSecure from "../api/axios";
 
 const DynamicSections = () => {
   const [visibleFoods, setVisibleFoods] = useState([]);
@@ -11,30 +11,35 @@ const DynamicSections = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://project-web-b11-a11-food-garden-ser.vercel.app/foods")
-      .then((res) => res.json())
-      .then((data) => {
-        const today = new Date();
-        const fiveDaysLater = new Date();
-        fiveDaysLater.setDate(today.getDate() + 5);  // 5 day expired time
+    const fetchFoods = async () => {
+      try {
+        const res = await axiosSecure.get("/foods");
+        if (res.data.ok) {
+          const data = res.data.data;
+          const today = new Date();
+          const fiveDaysLater = new Date();
+          fiveDaysLater.setDate(today.getDate() + 5);  // 5 day expired time
 
-        const nearlyExpired = data.filter((food) => {
-          const expiry = new Date(food.expiryDate);
-          return expiry >= today && expiry <= fiveDaysLater;
-        });
+          const nearlyExpired = data.filter((food) => {
+            const expiry = new Date(food.expiryDate);
+            return expiry >= today && expiry <= fiveDaysLater;
+          });
 
-        const sorted = nearlyExpired.sort(
-          (a, b) => new Date(a.expiryDate) - new Date(b.expiryDate)
-        );
+          const sorted = nearlyExpired.sort(
+            (a, b) => new Date(a.expiryDate) - new Date(b.expiryDate)
+          );
 
-        setAllFoods(sorted);
-        setVisibleFoods(sorted.slice(0, 6));
-        setLoading(false);
-      })
-      .catch((err) => {
+          setAllFoods(sorted);
+          setVisibleFoods(sorted.slice(0, 6));
+        }
+      } catch (err) {
         console.error("Failed to fetch food data", err);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchFoods();
   }, []);
 
   const handleShowAll = () => {

@@ -39,13 +39,7 @@ const UpdateFood = () => {
   const handleFormUpdate = (e) => {
     e.preventDefault();
 
-    fetch(`https://project-web-b11-a11-food-garden-ser.vercel.app/foods-update/${foodData._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
+    axiosSecure.put(`/foods/${foodData._id}`, formData)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to update food");
         return res.json();

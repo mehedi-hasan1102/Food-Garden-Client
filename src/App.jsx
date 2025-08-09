@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 import { useEffect, useState } from "react";
 import Loading from "./Components/Loading";
 import DarkModeSidebar from "./Components/DarkModeSidebar";
+import BackToTop from './Components/BackToTop';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -23,6 +24,7 @@ function App() {
     <>
       <Navbar />
       <DarkModeSidebar />
+      <BackToTop />
       {loading ? <Loading /> : <Outlet />}
 
       <Footer />

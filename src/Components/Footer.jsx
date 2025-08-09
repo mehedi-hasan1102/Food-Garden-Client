@@ -2,6 +2,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import { GiFoodTruck } from "react-icons/gi";
+import Contact from '../routes/Contact';
 
 const Footer = () => {
   return (
@@ -61,6 +62,14 @@ const Footer = () => {
                 className="hover:text-[#ff6347] dark:hover:text-[#ffa500] transition-colors"
               >
                 About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-[#ff6347] dark:hover:text-[#ffa500] transition-colors"
+              >
+                Contact
               </Link>
             </li>
           </ul>

@@ -1,13 +1,15 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../context/Provider/AuthProvider";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../context/firebase/firebase.config";
 import Countdown from "react-countdown";
 import { MdInfoOutline } from "react-icons/md";
 import Loading from "../Components/Loading";
+import axiosSecure from "../api/axios";
 
 const FoodDetailsPage = () => {
   const { id } = useParams();
-  const { user } = useContext(AuthContext);
+  const [user, authLoading] = useAuthState(auth);
 
   const [food, setFood] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,9 +21,7 @@ const FoodDetailsPage = () => {
   useEffect(() => {
     const fetchFoodDetails = async () => {
       try {
-        const res = await fetch(`https://food-garden-server-bd.vercel.app/foods/${id}`, {
-          credentials: "include",
-        });
+        const res = await fetch(`https://food-garden-server-bd.vercel.app/foods/${id}`);
         if (!res.ok) throw new Error("Failed to fetch food details");
         const data = await res.json();
         setFood(data);
@@ -49,14 +49,11 @@ const FoodDetailsPage = () => {
         postedAt: new Date().toISOString(),
       });
 
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message || "Failed to add note");
+      if (res.data.ok) {
+        const savedNote = res.data.data;
+        setNotes((prev) => [...prev, savedNote]);
+        setNewNote("");
       }
-
-      const savedNote = await res.json();
-      setNotes((prev) => [...prev, savedNote]);
-      setNewNote("");
     } catch (err) {
       console.error("Note submission error:", err);
       setError(err.message || "Failed to add note");
@@ -65,7 +62,7 @@ const FoodDetailsPage = () => {
     }
   };
 
-  if (loading)
+  if (loading || authLoading)
     return  <Loading /> 
   if (error)
     return <div className="text-center mt-12 text-red-500">{error}</div>;

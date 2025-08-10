@@ -1,12 +1,13 @@
 
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../context/Provider/AuthProvider";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../context/firebase/firebase.config";
 import Swal from "sweetalert2";
 import Loading from "../Components/Loading";
 import axiosSecure from "../api/axios";
 
 const MyItems = () => {
-  const { user } = useAuth();
+  const [user, authLoading] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deletingId, setDeletingId] = useState(null);
@@ -15,14 +16,17 @@ const MyItems = () => {
 
   useEffect(() => {
     const fetchMyItems = async () => {
-      if (!user?.email) return;
+      if (authLoading || !user) {
+        return;
+      }
       setLoading(true);
-
       try {
         const res = await axiosSecure.get("/foods");
         if (res.data.ok) {
           const allItems = res.data.data;
-          const myItems = allItems.filter((item) => item.userEmail === user.email);
+          const myItems = allItems.filter(
+            (item) => item.userEmail === user.email
+          );
           setItems(myItems);
         }
       } catch (error) {
@@ -34,7 +38,7 @@ const MyItems = () => {
     };
 
     fetchMyItems();
-  }, [user?.email]);
+  }, [user, authLoading]);
 
   const handleDelete = async (id) => {
     try {
@@ -83,7 +87,7 @@ const MyItems = () => {
     }
   };
 
-  if (loading) {
+  if (loading || authLoading) {
     return <Loading />;
   }
 

@@ -30,12 +30,7 @@ const About = () => {
             expiry dates, quantities, and categories.
           </p>
 
-          {/* <p className="text-[#111827] dark:text-[#d1d5db] text-lg leading-relaxed mb-6">
-            This project is built using React, Tailwind CSS, and integrates with a
-            MongoDB backend for data persistence. It features authentication, note
-            taking for each food item, sorting and filtering capabilities, and more,
-            all wrapped in a beautiful UI with dark mode support.
-          </p> */}
+          
 
           <p className="text-[#111827] dark:text-[#d1d5db] text-lg leading-relaxed">
             Our goal is to reduce food waste by helping you keep track of your items’

@@ -46,7 +46,7 @@ export default function HeroSlider() {
   ];
 
   return (
-    <div className="rounded-2xl w-full h-[70vh] max-h-[700px] overflow-hidden shadow-2xl mt-2 ">
+    <div className=" w-full h-[70vh] max-h-[700px] overflow-hidden shadow-2xl mt-2 ">
       <Swiper
         spaceBetween={30}
         effect="fade"

@@ -8,14 +8,19 @@ import StatsSection from "../Components/StatsSection";
 const Home = () => {
   return (
     <>
-    <div className="max-w-7xl mx-auto">
+    <div>
       <HeroSection />
+      <div className="max-w-7xl mx-auto">
+      
 
       <DynamicSections />
       <StatsSection />
       <ExtraSections />
       <ExtraSection2 />
       </div>
+
+    </div>
+    
     </>
   );
 };

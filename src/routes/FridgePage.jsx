@@ -61,7 +61,7 @@ const FridgePage = () => {
   };
 
   return (
-    <div className="px-4 py-10 min-h-screen transition-colors duration-500 bg-[#fffaf5] dark:bg-[#1f1f1f]">
+    <div className="px-4 py-10 min-h-screen transition-colors duration-500 ">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-[#ff6347] dark:text-[#ffa500] mb-10 text-center">
           My Fridge

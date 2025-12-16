@@ -73,7 +73,7 @@ const FAQ = () => {
 
   return (
     <section
-      className="w-full min-h-screen bg-[#fffaf5] dark:bg-[#121212] transition-colors duration-500 py-16 px-6 flex justify-center"
+      className="w-full min-h-screen  transition-colors duration-500 py-16 px-6 flex justify-center"
       aria-label="Frequently Asked Questions"
     >
       <div className="max-w-4xl w-full">

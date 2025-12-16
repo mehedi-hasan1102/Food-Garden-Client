@@ -54,7 +54,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen bg-[#fffaf5] dark:bg-[#1f1f1f] transition-colors duration-500 py-20 px-6 flex items-center justify-center">
+    <section className="min-h-screen  transition-colors duration-500 py-20 px-6 flex items-center justify-center">
       <div className="max-w-7xl w-full bg-white dark:bg-zinc-900 rounded-3xl shadow-lg dark:shadow-2xl overflow-hidden flex flex-col md:flex-row">
         {/* Left Image Section */}
         <div className="md:w-1/2 bg-gradient-to-tr from-[#ff6347]/30 to-[#ffa500]/20 flex items-center justify-center p-10">

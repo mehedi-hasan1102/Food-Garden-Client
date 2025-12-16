@@ -71,14 +71,14 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#fffaf5] dark:bg-[#1f1f1f] shadow-md border-b border-[#ff6347] dark:border-[#ffa500] transition-all">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#fffaf5] dark:bg-[#1f1f1f] shadow-md  transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center gap-2 text-2xl font-bold text-[#ff6347] dark:text-[#ffa500]">
             <GiFoodTruck />
             <Link to="/" className="hover:opacity-80">
-              FoodGarden
+              FoodTracker
             </Link>
           </div>
 

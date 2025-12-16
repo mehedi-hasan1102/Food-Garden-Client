@@ -1,4 +1,4 @@
-# Food Garden
+# Food Tracker
 
 ![React](https://img.shields.io/badge/React-19.1-%2361DAFB?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-6.3-%23646CFF?logo=vite)
@@ -73,19 +73,19 @@ VITE_API_BASE_URL=https://your-api-domain.com
 #### Start development server
 
 ```bash
-npm dev
+npm run dev
 ```
 
  ####   Create production build
 
 ```bash
-npm build
+npm rub build
 ```
 
  ####   Locally preview production build
 
 ```bash
-npm preview
+npm run preview
 ```
 
 #### Run ESLint static analysis

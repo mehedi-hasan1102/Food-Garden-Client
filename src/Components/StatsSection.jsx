@@ -24,7 +24,7 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="rounded-2xl px-4 py-16 bg-[#fffaf5] dark:bg-[#1f1f1f] transition-colors duration-500">
+    <section className="rounded-2xl px-4 py-16  transition-colors duration-500">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-12 text-[#ff6347] dark:text-[#ffa500]">
           Our Impact in Numbers

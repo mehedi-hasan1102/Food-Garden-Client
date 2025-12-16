@@ -45,7 +45,7 @@ const DashboardLayout = () => {
               <GiFoodTruck size={28} />
               {!collapsed && (
                 <span className="text-2xl font-bold tracking-wide select-none">
-                  FoodGarden
+                  Foodtracker
                 </span>
               )}
             </Link>

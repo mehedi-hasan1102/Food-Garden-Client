@@ -57,7 +57,7 @@ const itemVariants = {
 
 const ExtraSections = () => {
   return (
-    <section className="rounded-2xl  px-4 py-14 bg-gradient-to-b from-[#fffaf5] to-white dark:from-[#1f1f1f] dark:to-[#1f1f1f] transition-colors duration-300  ">
+    <section className="rounded-2xl  px-4 py-14  transition-colors duration-300  ">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-[#ff6347] dark:text-[#ffa500]">
           Food Preservation & Storage Tips

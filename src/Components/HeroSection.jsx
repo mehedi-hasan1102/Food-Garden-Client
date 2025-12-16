@@ -1,10 +1,13 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
+import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 export default function HeroSlider() {
   const slides = [
@@ -43,43 +46,48 @@ export default function HeroSlider() {
       title: 'Food for Every Mood',
       subtitle: 'Comfort foods to brighten your day and satisfy cravings',
     },
-  ];
+  ]
 
   return (
-    <div className=" w-full h-[70vh] max-h-[700px] overflow-hidden shadow-2xl mt-2 ">
+    <section className="w-full overflow-hidden shadow-2xl mt-2">
       <Swiper
         spaceBetween={30}
         effect="fade"
         navigation
         pagination={{ clickable: true }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
-        className="mySwiper h-full"
+        className="w-full"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-full ">
+            {/* Fixed Height Hero */}
+            <div className="relative w-full h-[70vh] sm:h-[80vh] lg:h-[100vh] overflow-hidden">
+              {/* Zooming Image */}
               <img
                 src={slide.img}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover object-center transition-transform duration-700 ease-in-out scale-100 hover:scale-105"
+                alt={slide.title}
+                className="w-full h-full object-cover object-center transform scale-100 transition-transform duration-[25000ms] ease-in-out hover:scale-105 swiper-slide-active:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-              <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-center">
-                <h2 className="text-white text-3xl md:text-5xl font-bold tracking-wide drop-shadow-lg">
-                  {slide.title}
-                </h2>
-                <p className="mt-4 text-white text-lg md:text-2xl font-light max-w-2xl drop-shadow-sm">
-                  {slide.subtitle}
-                </p>
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/20" />
+
+              {/* Centered Content */}
+              <div className="absolute inset-0 grid place-items-center text-center px-6">
+                <div className="max-w-4xl">
+                  <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight drop-shadow-xl">
+                    {slide.title}
+                  </h1>
+                  <p className="mt-5 text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed drop-shadow-md">
+                    {slide.subtitle}
+                  </p>
+                </div>
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
-  );
+    </section>
+  )
 }

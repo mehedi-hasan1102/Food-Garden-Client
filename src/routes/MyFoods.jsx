@@ -92,7 +92,7 @@ const MyItems = () => {
   }
 
   return (
-    <div className="px-4 py-10 min-h-screen bg-[#fffaf5] dark:bg-[#1f1f1f] transition-colors duration-500">
+    <div className="px-4 py-10 min-h-screen  transition-colors duration-500">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-6 text-[#ff6347] dark:text-[#ffa500]">
           My Food Items

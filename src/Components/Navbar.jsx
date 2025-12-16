@@ -78,7 +78,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2 text-2xl font-bold text-[#ff6347] dark:text-[#ffa500]">
             <GiFoodTruck />
             <Link to="/" className="hover:opacity-80">
-              FoodTracker
+              FoodGarden
             </Link>
           </div>
 
@@ -143,37 +143,63 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`lg:hidden transition-[max-height] duration-500 ease-in-out overflow-hidden bg-[#fffaf5] dark:bg-[#1f1f1f] ${menuOpen ? "max-h-screen py-4" : "max-h-0 py-0"
-          }`}
-      >
-        <ul className="space-y-2 px-4 text-lg font-medium dark:text-white">{navItems}</ul>
+      {/* Mobile Menu */}
+<div
+  className={`lg:hidden transition-[max-height] duration-500 ease-in-out overflow-hidden bg-[#fffaf5] dark:bg-[#1f1f1f] ${
+    menuOpen ? "max-h-screen py-4" : "max-h-0 py-0"
+  }`}
+>
+  <ul className="space-y-2 px-4 text-lg font-medium dark:text-white">{navItems}</ul>
 
-        {/* Mobile User Info */}
-        {user && (
-          <div className="mt-4 px-4 border-t border-[#ff6347] dark:border-[#ffa500] pt-4">
-            <div className="flex items-center gap-3 p-3 rounded-md bg-orange-50 dark:bg-[#2a2a2a]">
-              <img
-                src={user.photoURL}
-                alt={user.displayName || "User"}
-                className="w-10 h-10 rounded-full ring-2 ring-[#ff6347]"
-              />
-              <div>
-                <p className="text-sm font-semibold text-gray-800 dark:text-white">
-                  {user.displayName || "User"}
-                </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Logged in</p>
-              </div>
-            </div>
-            <Link
-              to="/dashboard"
-              className="block w-full mt-3 text-center bg-[#ff6347] text-white py-2 rounded hover:bg-[#e5533d] dark:bg-[#ffa500] dark:hover:bg-[#cc8400]"
-            >
-              Go to Dashboard
-            </Link>
-          </div>
-        )}
+  {/* Mobile User Info / Login-Logout Buttons */}
+  <div className="mt-4 px-4 border-t border-[#ff6347] dark:border-[#ffa500] pt-4">
+    {!user ? (
+      <div className="flex flex-col space-y-2">
+        <Link
+          to="/login"
+          className="block w-full text-center py-2 rounded border border-[#ff6347] text-[#ff6347] hover:bg-[#ff6347] hover:text-white dark:border-[#ffa500] dark:text-[#ffa500] dark:hover:bg-[#ffa500] dark:hover:text-black"
+        >
+          Login
+        </Link>
+        <Link
+          to="/signup"
+          className="block w-full text-center py-2 rounded bg-[#ff6347] text-white hover:bg-[#e5533d] dark:bg-[#ffa500] dark:hover:bg-[#cc8400]"
+        >
+          Register
+        </Link>
       </div>
+    ) : (
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-3 p-3 rounded-md bg-orange-50 dark:bg-[#2a2a2a]">
+          <img
+            src={user.photoURL}
+            alt={user.displayName || "User"}
+            className="w-10 h-10 rounded-full ring-2 ring-[#ff6347]"
+          />
+          <div>
+            <p className="text-sm font-semibold text-gray-800 dark:text-white">
+              {user.displayName || "User"}
+            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Logged in</p>
+          </div>
+        </div>
+        <Link
+          to="/dashboard"
+          className="block w-full text-center bg-[#ff6347] text-white py-2 rounded hover:bg-[#e5533d] dark:bg-[#ffa500] dark:hover:bg-[#cc8400]"
+        >
+          Dashboard
+        </Link>
+        <button
+          onClick={handleLogout}
+          className="block w-full text-center py-2 rounded border border-red-500 text-red-500 hover:bg-red-500 hover:text-white dark:border-red-400 dark:text-red-400 dark:hover:bg-red-400 dark:hover:text-black"
+        >
+          Logout
+        </button>
+      </div>
+    )}
+  </div>
+</div>
+
     </nav>
   );
 };

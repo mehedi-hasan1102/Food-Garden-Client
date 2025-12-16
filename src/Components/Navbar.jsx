@@ -78,7 +78,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2 text-2xl font-bold text-[#ff6347] dark:text-[#ffa500]">
             <GiFoodTruck />
             <Link to="/" className="hover:opacity-80">
-              FoodGarden
+              FoodTracker
             </Link>
           </div>
 
@@ -142,8 +142,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {/* Mobile Menu */}
+     
 <div
   className={`lg:hidden transition-[max-height] duration-500 ease-in-out overflow-hidden bg-[#fffaf5] dark:bg-[#1f1f1f] ${
     menuOpen ? "max-h-screen py-4" : "max-h-0 py-0"

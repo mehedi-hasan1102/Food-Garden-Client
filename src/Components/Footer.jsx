@@ -132,7 +132,7 @@ const Footer = () => {
         <br />
   Developed by{" "}
   <a
-    href="https://mehedi-h.vercel.app"
+    href="https://m-hasan.vercel.app"
     target="_blank"
     rel="noopener noreferrer"
     className="font-medium text-[#ff6347] dark:text-[#ffa500] hover:underline"

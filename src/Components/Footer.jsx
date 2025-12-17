@@ -129,6 +129,16 @@ const Footer = () => {
           Food Tracker
         </span>{" "}
         — All rights reserved.
+        <br />
+  Developed by{" "}
+  <a
+    href="https://mehedi-h.vercel.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-medium text-[#ff6347] dark:text-[#ffa500] hover:underline"
+  >
+    Mehedi Hasan
+  </a>
       </div>
     </footer>
   );

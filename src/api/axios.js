@@ -3,7 +3,7 @@ import axios from 'axios';
 import { auth } from '../context/firebase/firebase.config';
 
 const axiosSecure = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
+  baseURL: 'https://food-garden-server-bd.vercel.app',
 });
 
 // Add a request interceptor

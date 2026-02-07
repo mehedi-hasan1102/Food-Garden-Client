@@ -17,9 +17,13 @@ const AllFoods = () => {
       try {
         setLoading(true);
         const res = await axiosSecure.get("/foods");
-        if (res.data.ok) {
-          setFoods(res.data.data);
-        }
+        const payload = res.data;
+        const items = Array.isArray(payload?.data)
+          ? payload.data
+          : Array.isArray(payload)
+          ? payload
+          : [];
+        setFoods(items);
       } catch (err) {
         Swal.fire({
           title: "Failed to fetch foods",

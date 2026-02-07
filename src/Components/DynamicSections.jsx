@@ -13,17 +13,20 @@ const DynamicSections = () => {
     const fetchFoods = async () => {
       try {
         const res = await axiosSecure.get("/foods");
-        if (res.data.ok) {
-          const data = res.data.data;
+        const payload = res.data;
+        const items = Array.isArray(payload?.data)
+          ? payload.data
+          : Array.isArray(payload)
+          ? payload
+          : [];
 
-          // Sort by newest first
-          const sorted = data.sort(
-            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-          );
+        const sorted = [...items].sort((a, b) => {
+          const aDate = a.addedAt || a.addedDate || a.createdAt || 0;
+          const bDate = b.addedAt || b.addedDate || b.createdAt || 0;
+          return new Date(bDate) - new Date(aDate);
+        });
 
-          // Show only first 8 items
-          setVisibleFoods(sorted.slice(0, 8));
-        }
+        setVisibleFoods(sorted.slice(0, 8));
       } catch (err) {
         console.error("Failed to fetch food data", err);
       } finally {

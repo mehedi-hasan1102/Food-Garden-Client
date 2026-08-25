@@ -2,8 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/Provider/AuthProvider";
 import { FiLogOut } from "react-icons/fi";
-import { GiFoodTruck } from "react-icons/gi";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import navLogo from "../assets/nav-logo.png";
 import Switch from "./DarkModeSidebar";
 import Swal from "sweetalert2";
 
@@ -75,12 +75,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2 text-2xl font-bold text-[#ff6347] dark:text-[#ffa500]">
-            <GiFoodTruck />
-            <Link to="/" className="hover:opacity-80">
-              FoodTracker
-            </Link>
-          </div>
+          <Link to="/" className="flex items-center hover:opacity-80">
+            <img
+              src={navLogo}
+              alt="Food Tracker"
+              className="h-10 w-auto"
+            />
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-center">

@@ -1,7 +1,7 @@
 
 import { FaFacebookF, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { GiFoodTruck } from "react-icons/gi";
+import navLogo from "../assets/nav-logo.png";
 
 const Footer = () => {
   return (
@@ -13,10 +13,13 @@ const Footer = () => {
         <div>
           <Link
             to="/"
-            className="flex items-center gap-3 text-3xl font-extrabold text-[#ff6347] dark:text-[#ffa500] mb-5"
+            className="flex items-center mb-5"
           >
-            <GiFoodTruck className="text-4xl" />
-            FoodTracker
+            <img
+              src={navLogo}
+              alt="Food Tracker"
+              className="h-10 w-auto"
+            />
           </Link>
           <p className="text-sm md:text-base leading-relaxed text-[#444] dark:text-[#ccc]">
             Your go-to guide for healthy eating, providing personalized tracking

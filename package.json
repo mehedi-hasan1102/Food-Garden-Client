@@ -19,6 +19,7 @@
     "dev:api": "turbo run dev --filter=@foodly/api",
     "build": "turbo run build",
     "build:web": "turbo run build --filter=@foodly/web",
+    "build:vercel": "cd apps/web && bun run build && cp -r dist ../dist",
     "lint": "turbo run lint",
     "lint:web": "turbo run lint --filter=@foodly/web",
     "lint:api": "turbo run lint --filter=@foodly/api",

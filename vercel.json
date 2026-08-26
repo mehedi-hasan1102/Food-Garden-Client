@@ -2,11 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "apps/web/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "cd apps/web && bun run build",
-        "outputDirectory": "apps/web/dist",
+        "buildCommand": "bun run build:vercel",
+        "outputDirectory": "dist",
         "installCommand": "bun install"
       }
     },
@@ -19,10 +19,6 @@
     {
       "src": "/api/(.*)",
       "dest": "/apps/api/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/apps/web/dist/$1"
     }
   ]
 }

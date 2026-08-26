@@ -9,7 +9,8 @@
       "use": "@vercel/static-build",
       "config": {
         "buildCommand": "bun run build",
-        "outputDirectory": "dist"
+        "outputDirectory": "dist",
+        "installCommand": "bun install"
       }
     },
     {

@@ -3,11 +3,12 @@
   "outputDirectory": "dist",
   "buildCommand": "bun run build",
   "installCommand": "bun install",
-  "functions": {
-    "apps/api/index.js": {
-      "runtime": "@vercel/node"
+  "builds": [
+    {
+      "src": "apps/api/index.js",
+      "use": "@vercel/node"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/(.*)",

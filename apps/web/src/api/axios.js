@@ -1,12 +1,13 @@
+import axios from "axios";
+import { auth } from "../context/firebase/firebase.config";
 
-import axios from 'axios';
-import { auth } from '../context/firebase/firebase.config';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 const axiosSecure = axios.create({
-  baseURL: 'https://food-garden-server-bd.vercel.app',
+  baseURL: BASE_URL,
 });
 
-// Add a request interceptor
+// Attach the current Firebase user's ID token to every request.
 axiosSecure.interceptors.request.use(
   async (config) => {
     const user = auth.currentUser;
@@ -16,9 +17,7 @@ axiosSecure.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 export default axiosSecure;

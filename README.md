@@ -1,124 +1,70 @@
-# Food Tracker
+# Foodly
 
-![React](https://img.shields.io/badge/React-19.1-%2361DAFB?logo=react)
-![Vite](https://img.shields.io/badge/Vite-6.3-%23646CFF?logo=vite)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1-%2338B2AC?logo=tailwind-css)
-![Firebase](https://img.shields.io/badge/Firebase-11.8-%23FFCA28?logo=firebase)
+A full-stack food inventory application built as a **Bun workspace monorepo** orchestrated with **Turborepo**.
 
-A production-ready food management application featuring real-time data synchronization, JWT authentication, and optimized performance.
+- **`apps/api`** — Express REST API (JWT auth, MongoDB/Mongoose)
+- **`apps/web`** — React 19 + Vite + Tailwind CSS frontend (Firebase Auth)
+- **`packages/eslint-config`** — shared ESLint flat config
 
----
+> Powered by [Bun](https://bun.sh) (package manager + runtime) and [Turborepo](https://turbo.build) for incremental build caching and task orchestration.
 
-## ✨ Core Features
+## Prerequisites
 
-### Application Infrastructure
+- [Bun](https://bun.sh) `>=1.2` (install with `curl -LsSf https://bun.sh | bash` or `nvm`/`brew`)
 
-- **React 19** with Concurrent Mode
-- **Vite 6** build optimization
-- **Firebase** backend services
-- **React Router v7** navigation
-
-### UI/UX Components
-
-- **Tailwind CSS** + **DaisyUI** theming
-- **Framer Motion** animations (60 FPS)
-- **Swiper.js** interactive carousels
-- **React Tooltip** contextual guidance
-
-### Business Logic
-
-- **JWT Authentication** flow
-- **CRUD Operations** with real-time updates
-- **Date-fns** for time management
-- **SweetAlert2** for user feedback
-
----
-#### 🚀 Live Link : https://food-garden-bd.web.app
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- **Node.js** (v18.15 or higher - LTS recommended)
-- **npm** (v8.x or higher) 
-
-### Installation
+## Quick start
 
 ```bash
-git clone https://github.com/mehedi-hasan1102/Food-Garden-Client
-cd Food-Garden-Client
-npm install
+# Install all workspace dependencies (single lockfile at the repo root)
+bun install
+
+# Run every app in development (API + Web, in parallel)
+bun run dev
+
+# ...or run a single app
+bun run dev:web
+bun run dev:api
 ```
 
-## Environment Configuration
+Each app also has its own scripts for targeted use:
 
-# Firebase
+| Command              | Description                                  |
+| -------------------- | -------------------------------------------- |
+| `bun run dev`        | Start all dev servers (turbo, parallel)      |
+| `bun run dev:web`    | Start only the web dev server (vite)         |
+| `bun run dev:api`    | Start only the API (express)                 |
+| `bun run build`      | Build all apps for production                |
+| `bun run lint`       | Lint all apps                                |
+| `bun run format`     | Format the whole repo with Prettier          |
+| `bun run test`       | Run the test suite across apps               |
+| `bun run clean`      | Remove build artifacts from all apps         |
 
-```env
-VITE_FIREBASE_API_KEY=your_key
-VITE_FIREBASE_AUTH_DOMAIN=your_domain
-VITE_FIREBASE_PROJECT_ID=your_id
-VITE_FIREBASE_STORAGE_BUCKET=your_bucket
-```
+## Environment variables
 
-# API
-
-VITE_API_BASE_URL=https://your-api-domain.com
-
-## 📜 Scripts
-
-## Command Description
-
-#### Start development server
+Every app ships with a `.env.example` describing the required variables. Copy them and fill in values:
 
 ```bash
-npm run dev
+cp apps/api/.env.example apps/api/.env
+cp apps/web/.env.example apps/web/.env
 ```
 
- ####   Create production build
+> `.env` files are git-ignored — never commit real secrets.
 
-```bash
-npm rub build
+## Workspace layout
+
+```
+foodly/
+├── package.json            # root workspace + packageManager = bun
+├── bun.lock                # single workspace lockfile
+├── turbo.json              # build pipeline / caching
+├── apps/
+│   ├── api/                # Express server (CommonJS, runs on Bun)
+│   └── web/                # React + Vite frontend
+└── packages/
+    └── eslint-config/      # shared ESLint flat config
 ```
 
- ####   Locally preview production build
+## Deployment
 
-```bash
-npm run preview
-```
-
-#### Run ESLint static analysis
-
-```bash
-npm lint
-```
-
-
-
-## 🛠️ Technical Specifications
-
-| Category      | Technologies Used                                                                                                                   |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **Core**      | ![React](https://img.shields.io/badge/React-19.1-%2361DAFB) ![Vite](https://img.shields.io/badge/Vite-6.3-%23646CFF)                |
-| **Styling**   | ![Tailwind](https://img.shields.io/badge/Tailwind-4.1-%2338B2AC) ![DaisyUI](https://img.shields.io/badge/DaisyUI-5.0-%235A0EF8)     |
-| **State**     | Context API, ![Firebase Hooks](https://img.shields.io/badge/React_Firebase_Hooks-5.1-%23FFCB2B)                                     |
-| **UI**        | ![Framer](https://img.shields.io/badge/Framer_Motion-12.16-%23005FFF) ![Swiper](https://img.shields.io/badge/Swiper-11.2-%23638FEF) |
-| **Utilities** | ![Axios](https://img.shields.io/badge/Axios-1.9-%235A29E4) ![Date-fns](https://img.shields.io/badge/Date_fns-4.1-%23E77532)         |
-
-🏗️ Build Pipeline
-
-## Diagram
-
-![alt text](client.png)
-
-👨‍💻 Author : Mehedi Hasan
-
-📧 Email : mehedi.hasan11023@gmail.com
-
-🔗 GitHub : https://github.com/mehedi-hasan1102
-
-## 📄 License
-
-Proprietary Software © 2024. All rights reserved.
-
+- **Web** — Firebase Hosting (`firebase.json` in `apps/web`). See `.github/workflows/firebase-hosting-merge.yml`.
+- **API** — Vercel (`apps/api/vercel.json`), or run the container (`docker compose up`).

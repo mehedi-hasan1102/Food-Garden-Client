@@ -1,0 +1,13 @@
+{
+  "name": "@foodly/eslint-config",
+  "version": "1.0.0",
+  "description": "Shared ESLint flat config foundation for the Foodly monorepo.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.js",
+  "exports": "./index.js",
+  "dependencies": {
+    "@eslint/js": "^9.25.0",
+    "globals": "^16.0.0"
+  }
+}

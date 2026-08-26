@@ -1,0 +1,32 @@
+{
+  "name": "@foodly/api",
+  "version": "1.0.0",
+  "description": "Foodly REST API — Express server with JWT auth and MongoDB.",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "bun --watch index.js",
+    "start": "bun index.js",
+    "build": "node --check index.js",
+    "lint": "eslint .",
+    "test": "bun --test",
+    "clean": "rm -rf dist"
+  },
+  "engines": {
+    "node": ">=18",
+    "bun": ">=1.2"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.17.0"
+  },
+  "devDependencies": {
+    "@foodly/eslint-config": "workspace:*",
+    "eslint": "^9.25.0"
+  }
+}

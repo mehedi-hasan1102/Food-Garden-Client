@@ -1,0 +1,12 @@
+node_modules/
+turbo/
+.turbo/
+dist/
+build/
+.next/
+.env*
+*.log
+nohup.out
+firebase-debug.log*
+client.png
+server.png

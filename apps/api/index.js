@@ -32,6 +32,7 @@ app.get("/", (req, res) => {
 const allowedOrigins = [
   "https://food-garden-server-bd.vercel.app",
   "https://food-garden-bd.web.app",
+  "https://foodly.mehedi-hasan.me",
   "http://localhost:5173",
   "http://localhost:3000",
 ];

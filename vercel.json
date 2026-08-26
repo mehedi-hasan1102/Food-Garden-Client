@@ -1,20 +1,13 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "bun run build:vercel",
-        "outputDirectory": "dist",
-        "installCommand": "bun install"
-      }
-    },
-    {
-      "src": "apps/api/index.js",
-      "use": "@vercel/node"
+  "outputDirectory": "dist",
+  "buildCommand": "bun run build",
+  "installCommand": "bun install",
+  "functions": {
+    "apps/api/index.js": {
+      "runtime": "@vercel/node"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/api/(.*)",

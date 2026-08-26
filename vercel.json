@@ -1,4 +1,28 @@
 {
   "version": 2,
-  "outputDirectory": "apps/web/dist"
+  "builds": [
+    {
+      "src": "apps/web/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "cd apps/web && bun run build",
+        "outputDirectory": "apps/web/dist",
+        "installCommand": "bun install"
+      }
+    },
+    {
+      "src": "apps/api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/apps/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/apps/web/dist/$1"
+    }
+  ]
 }

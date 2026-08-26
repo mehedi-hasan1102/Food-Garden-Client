@@ -11,6 +11,7 @@ if (!process.env.JWT_SECRET) {
 }
 
 const app = express();
+const apiRouter = express.Router();
 const PORT = process.env.PORT || 5000;
 const COOKIE_NAME = "token";
 
@@ -30,8 +31,6 @@ app.get("/", (req, res) => {
 
 // Configure allowed origins
 const allowedOrigins = [
-  "https://food-garden-server-bd.vercel.app",
-  "https://food-garden-bd.web.app",
   "https://foodly.mehedi-hasan.me",
   "http://localhost:5173",
   "http://localhost:3000",
@@ -98,7 +97,7 @@ const verifyToken = (req, res, next) => {
 // --- Auth endpoints ---
 
 // Issue JWT cookie (login)
-app.post("/jwt", (req, res) => {
+apiRouter.post("/jwt", (req, res) => {
   const { email } = req.body;
 
   if (!email) {
@@ -114,7 +113,7 @@ app.post("/jwt", (req, res) => {
 });
 
 // Logout - clear the JWT cookie
-app.post("/logout", (req, res) => {
+apiRouter.post("/logout", (req, res) => {
   res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: 0 });
   res.json({ ok: true, message: "Logged out successfully." });
 });
@@ -188,7 +187,7 @@ const requireDb = async (req, res, next) => {
 // --- API Routes ---
 
 // Public: list all foods
-app.get("/foods", requireDb, async (req, res) => {
+apiRouter.get("/foods", requireDb, async (req, res) => {
   try {
     const list = await foods.find().toArray();
     res.json({ ok: true, data: list });
@@ -199,7 +198,7 @@ app.get("/foods", requireDb, async (req, res) => {
 });
 
 // Protected: add food
-app.post("/foods", verifyToken, requireDb, async (req, res) => {
+apiRouter.post("/foods", verifyToken, requireDb, async (req, res) => {
   try {
     const newFood = { ...req.body, userEmail: req.user.email, addedAt: new Date().toISOString() };
     const result = await foods.insertOne(newFood);
@@ -211,7 +210,7 @@ app.post("/foods", verifyToken, requireDb, async (req, res) => {
 });
 
 // Protected: delete food
-app.delete("/foods/:id", verifyToken, requireDb, async (req, res) => {
+apiRouter.delete("/foods/:id", verifyToken, requireDb, async (req, res) => {
   try {
     const { id } = req.params;
     const result = await foods.deleteOne({ _id: new ObjectId(id) });
@@ -228,7 +227,7 @@ app.delete("/foods/:id", verifyToken, requireDb, async (req, res) => {
 });
 
 // Protected: update food
-app.put("/foods/:id", verifyToken, requireDb, async (req, res) => {
+apiRouter.put("/foods/:id", verifyToken, requireDb, async (req, res) => {
   try {
     const { id } = req.params;
     const updatedData = req.body;
@@ -247,7 +246,7 @@ app.put("/foods/:id", verifyToken, requireDb, async (req, res) => {
 });
 
 // GET single food item by ID
-app.get("/foods/:id", requireDb, async (req, res) => {
+apiRouter.get("/foods/:id", requireDb, async (req, res) => {
   try {
     const id = req.params.id;
     const food = await foods.findOne({ _id: new ObjectId(id) });
@@ -263,7 +262,7 @@ app.get("/foods/:id", requireDb, async (req, res) => {
 });
 
 // Protected: Post a new note to a food item
-app.post("/foods/notes/:id", verifyToken, requireDb, async (req, res) => {
+apiRouter.post("/foods/notes/:id", verifyToken, requireDb, async (req, res) => {
   try {
     const { id } = req.params;
     const { note } = req.body;
@@ -285,6 +284,8 @@ app.post("/foods/notes/:id", verifyToken, requireDb, async (req, res) => {
     res.status(500).json({ ok: false, message: "Failed to add note." });
   }
 });
+
+app.use("/api", apiRouter);
 
 initDb().catch((err) => {
   console.error("MongoDB connection failed:", err);

@@ -8,11 +8,12 @@ build/
 .next/
 out/
 
-# Environment files (kept: only *.example committed)
+# Environment files (only *.example is committed — never real secrets)
 .env
 .env.*
+.env.local
+.env.*.local
 !.env.example
-.env*
 
 # Logs
 *.log

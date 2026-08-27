@@ -3,7 +3,30 @@
   "version": "1.0.0",
   "private": true,
   "description": "Foodly — full-stack food inventory app (Express API + React/Vite frontend) in a Bun monorepo.",
-  "license": "ISC",
+  "author": "Mehedi Hasan <hello@mehedi-hasan.me>",
+  "keywords": [
+    "food",
+    "food-tracking",
+    "food-inventory",
+    "inventory",
+    "express",
+    "react",
+    "vite",
+    "mongodb",
+    "firebase",
+    "authentication",
+    "jwt",
+    "monorepo",
+    "turborepo",
+    "bun"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheMehediHQ/Foodly.git"
+  },
+  "homepage": "https://github.com/TheMehediHQ/Foodly#readme",
+  "bugs": "https://github.com/TheMehediHQ/Foodly/issues",
+  "license": "MIT",
   "engines": {
     "node": ">=18",
     "bun": ">=1.2"

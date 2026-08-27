@@ -2,7 +2,7 @@
   "name": "@foodly/api",
   "version": "1.0.0",
   "description": "Foodly REST API — Express server with JWT auth and MongoDB.",
-  "license": "ISC",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "dev": "bun --watch index.js",

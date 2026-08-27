@@ -15,7 +15,7 @@ them **responsibly** rather than opening a public issue.
 - **Preferred (recommended):** Open a **private GitHub Security Advisory** on the
   repository. GitHub will route it to the maintainers.
 - **Email:** Send the details to the project maintainer at
-  **mehedi.hasan11023@gmail.com**. Include `[SECURITY]` in the subject line.
+  **hello@mehedi-hasan.me**. Include `[SECURITY]` in the subject line.
 - **GitHub:** You may also file a confidential issue in this repository and
   mark it appropriately.
 

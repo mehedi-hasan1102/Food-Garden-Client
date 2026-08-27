@@ -114,7 +114,7 @@ npm lint
 
 👨‍💻 Author : Mehedi Hasan
 
-📧 Email : mehedi.hasan11023@gmail.com
+📧 Email : hello@mehedi-hasan.me
 
 🔗 GitHub : https://github.com/mehedi-hasan1102
 

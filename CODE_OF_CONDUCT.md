@@ -61,7 +61,7 @@ representative.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-**mehedi.hasan11023@gmail.com** (the project maintainer) or by opening a
+**hello@mehedi-hasan.me** (the project maintainer) or by opening a
 confidential issue in the repository.
 
 All complaints will be reviewed and investigated promptly and fairly.
